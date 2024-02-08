@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Chips Counter</title>
+	<style>
+        .blue {
+            color: blue;
+        }
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 20px;
+		}
+
+        .chip {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+            .chip label {
+                margin-right: 10px;
+                width: 100px;
+                text-align: right;
+            }
+
+            .chip input[type="number"] {
+                width: 60px;
+            }
+                button {
+			padding: 5px 10px;
+			margin-top: 10px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<h1>Chips Counter</h1>
+	<div class="chip" style="color:blue">
+		<label for="blueRacks">Blue Racks:</label>
+		<input type="number" id="blueRacks" value="0">
+		<label for="blueStacks">Blue Stacks:</label>
+		<input type="number" id="blueStacks" value="0">
+		<label for="blueSingles">Blue Singles:</label>
+		<input type="number" id="blueSingles" value="0">
+	</div>
+	<div class="chip" style="color:pink">
+		<label for="whiteRacks">White Racks:</label>
+		<input type="number" id="whiteRacks" value="0">
+		<label for="whiteStacks">White Stacks:</label>
+		<input type="number" id="whiteStacks" value="0">
+		<label for="whiteSingles">White Singles:</label>
+		<input type="number" id="whiteSingles" value="0">
+	</div>
+	<div class="chip" style="color:red">
+		<label for="redRacks">Red Racks:</label>
+		<input type="number" id="redRacks" value="0">
+		<label for="redStacks">Red Stacks:</label>
+		<input type="number" id="redStacks" value="0">
+		<label for="redSingles">Red Singles:</label>
+		<input type="number" id="redSingles" value="0">
+	</div>
+	<div class="chip" style="color:yellow">
+		<label for="yellowRacks">Yellow Racks:</label>
+		<input type="number" id="yellowRacks" value="0">
+		<label for="yellowStacks">Yellow Stacks:</label>
+		<input type="number" id="yellowStacks" value="0">
+		<label for="yellowSingles">Yellow Singles:</label>
+		<input type="number" id="yellowSingles" value="0">
+	</div>
+	<div class="chip" style="color:green">
+		<label for="greenRacks">Green Racks:</label>
+		<input type="number" id="greenRacks" value="0">
+		<label for="greenStacks">Green Stacks:</label>
+		<input type="number" id="greenStacks" value="0">
+		<label for="greenSingles">Green Singles:</label>
+		<input type="number" id="greenSingles" value="0">
+	</div>
+	<div class="chip" style="color:black">
+		<label for="blackRacks">Black Racks:</label>
+		<input type="number" id="blackRacks" value="0">
+		<label for="blackStacks">Black Stacks:</label>
+		<input type="number" id="blackStacks" value="0">
+		<label for="blackSingles">Black Singles:</label>
+		<input type="number" id="blackSingles" value="0">
+	</div>
+	<div class="chip" style="color:purple">
+		<label for="purpleRacks">Purple Racks:</label>
+		<input type="number" id="purpleRacks" value="0">
+		<label for="purpleStacks">Purple Stacks:</label>
+		<input type="number" id="purpleStacks" value="0">
+		<label for="purpleSingles">Purple Singles:</label>
+		<input type="number" id="purpleSingles" value="0">
+	</div>
+	<div class="chip" style="color:orange">
+		<label for="orangeRacks">Orange Racks:</label>
+		<input type="number" id="orangeRacks" value="0">
+		<label for="orangeStacks">Orange Stacks:</label>
+		<input type="number" id="orangeStacks" value="0">
+		<label for="orangeSingles">Orange Singles:</label>
+		<input type="number" id="orangeSingles" value="0">
+	</div>
+	<div class="chip" style="color:gray">
+		<label for="grayRacks">Gray Racks:</label>
+		<input type="number" id="grayRacks" value="0">
+		<label for="grayStacks">Gray Stacks:</label>
+		<input type="number" id="grayStacks" value="0">
+		<label for="graySingles">Gray Singles:</label>
+		<input type="number" id="graySingles" value="0">
+	</div>
+
+	<button onclick="calculateTotal()" ontouch="calculateTotal()">Calculate Total</button>
+	<button onclick="resetValues()">Reset</button>
+	<div id="totalBalance"></div>
+
+	<script>
+		function calculateTotal() {
+			var totalBalance = 0;
+			var checkIt = 62000;
+			var under = 0;
+			var over = 0;
+
+			// Calculate total for blue chips
+			var blueRacks = parseInt(document.getElementById("blueRacks").value);
+			var blueStacks = parseInt(document.getElementById("blueStacks").value);
+			var blueSingles = parseInt(document.getElementById("blueSingles").value);
+			var blueTotal = (blueRacks * 100) + (blueStacks * 20) + blueSingles;
+			totalBalance += blueTotal;
+
+			// Calculate total for white chips
+			var whiteRacks = parseInt(document.getElementById("whiteRacks").value);
+			var whiteStacks = parseInt(document.getElementById("whiteStacks").value);
+			var whiteSingles = parseInt(document.getElementById("whiteSingles").value);
+			var whiteTotal = (whiteRacks * 200) + (whiteStacks * 40) + (whiteSingles * 2);
+			totalBalance += whiteTotal;
+
+			// Calculate total for red chips
+			var redRacks = parseInt(document.getElementById("redRacks").value);
+			var redStacks = parseInt(document.getElementById("redStacks").value);
+			var redSingles = parseInt(document.getElementById("redSingles").value);
+			var redTotal = (redRacks * 500) + (redStacks * 100) + (redSingles * 5);
+			totalBalance += redTotal;
+
+			// Calculate total for yellow chips
+			var yellowRacks = parseInt(document.getElementById("yellowRacks").value);
+			var yellowStacks = parseInt(document.getElementById("yellowStacks").value);
+			var yellowSingles = parseInt(document.getElementById("yellowSingles").value);
+			var yellowTotal = (yellowRacks * 1000) + (yellowStacks * 200) + (yellowSingles * 10);
+			totalBalance += yellowTotal;
+
+			// Calculate total for green chips
+			var greenRacks = parseInt(document.getElementById("greenRacks").value);
+			var greenStacks = parseInt(document.getElementById("greenStacks").value);
+			var greenSingles = parseInt(document.getElementById("greenSingles").value);
+			var greenTotal = (greenRacks * 2500) + (greenStacks * 500) + (greenSingles * 25);
+			totalBalance += greenTotal;
+
+			// Calculate total for black chips
+			var blackRacks = parseInt(document.getElementById("blackRacks").value);
+			var blackStacks = parseInt(document.getElementById("blackStacks").value);
+			var blackSingles = parseInt(document.getElementById("blackSingles").value);
+			var blackTotal = (blackRacks * 10000) + (blackStacks * 2000) + (blackSingles * 100);
+			totalBalance += blackTotal;
+
+			// Calculate total for purple chips
+			var purpleRacks = parseInt(document.getElementById("purpleRacks").value);
+			var purpleStacks = parseInt(document.getElementById("purpleStacks").value);
+			var purpleSingles = parseInt(document.getElementById("purpleSingles").value);
+			var purpleTotal = (purpleRacks * 50000) + (purpleStacks * 10000) + (purpleSingles * 500);
+			totalBalance += purpleTotal;
+
+			// Calculate total for orange chips
+			var orangeRacks = parseInt(document.getElementById("orangeRacks").value);
+			var orangeStacks = parseInt(document.getElementById("orangeStacks").value);
+			var orangeSingles = parseInt(document.getElementById("orangeSingles").value);
+			var orangeTotal = (orangeRacks * 100000) + (orangeStacks * 20000) + (orangeSingles * 1000);
+			totalBalance += orangeTotal;
+
+			// Calculate total for gray chips
+			var grayRacks = parseInt(document.getElementById("grayRacks").value);
+			var grayStacks = parseInt(document.getElementById("grayStacks").value);
+			var graySingles = parseInt(document.getElementById("graySingles").value);
+			var grayTotal = (grayRacks * 500000) + (grayStacks * 100000) + (graySingles * 5000);
+			totalBalance += grayTotal;
+
+			// Display total balance
+			var resultDiv = document.getElementById("totalBalance");
+			resultDiv.innerHTML = "Total Balance: " + totalBalance;
+
+			// Check if balance is even, over, or under
+			if (totalBalance == checkIt) {
+				resultDiv.innerHTML += "<br>Even";
+			} else if (totalBalance < checkIt) {
+				under = checkIt - totalBalance;
+				resultDiv.innerHTML += "<br>Down: " + under;
+			} else {
+				over = totalBalance - checkIt;
+				resultDiv.innerHTML += "<br>Over: " + over;
+			}
+		}
+
+		function resetValues() {
+			document.getElementById("blueRacks").value = 0;
+			document.getElementById("blueStacks").value = 0;
+			document.getElementById("blueSingles").value = 0;
+          
+
+			document.getElementById("whiteRacks").value = 0;
+			document.getElementById("whiteStacks").value = 0;
+			document.getElementById("whiteSingles").value = 0;
+
+			document.getElementById("redRacks").value = 0;
+			document.getElementById("redStacks").value = 0;
+			document.getElementById("redSingles").value = 0;
+
+			document.getElementById("yellowRacks").value = 0;
+			document.getElementById("yellowStacks").value = 0;
+			document.getElementById("yellowSingles").value = 0;
+
+			document.getElementById("greenRacks").value = 0;
+			document.getElementById("greenStacks").value = 0;
+			document.getElementById("greenSingles").value = 0;
+
+			document.getElementById("blackRacks").value = 0;
+			document.getElementById("blackStacks").value = 0;
+			document.getElementById("blackSingles").value = 0;
+
+			document.getElementById("purpleRacks").value = 0;
+			document.getElementById("purpleStacks").value = 0;
+			document.getElementById("purpleSingles").value = 0;
+
+			document.getElementById("orangeRacks").value = 0;
+			document.getElementById("orangeStacks").value = 0;
+			document.getElementById("orangeSingles").value = 0;
+
+			document.getElementById("grayRacks").value = 0;
+			document.getElementById("grayStacks").value = 0;
+			document.getElementById("graySingles").value = 0;
+
+			document.getElementById("totalBalance").innerText = ""; // Reset total balance display
+		}
+
+	</script>
+</body>
+</html>
+
+
