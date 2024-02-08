@@ -238,6 +238,7 @@
 			}
 		}
 
+		/*
 		function resetValues() {
 			document.getElementById("blueRacks").value = 0;
 			document.getElementById("blueStacks").value = 0;
@@ -283,9 +284,20 @@
 			document.getElementById("oneDollar").value = 0;
 
 			document.getElementById("totalBalance").innerText = ""; // Reset total balance display
+
+			input.style.backgroundColor = ""; // Reset background color
 		}
+*/
+		function resetValues() {
+			// Reset input values to 0
+			document.querySelectorAll("input[type='number']").forEach(function(input) {
+				input.value = 0;
+				input.style.backgroundColor = ""; // Reset background color
+			});
 
-
+			// Reset total balance display
+			document.getElementById("totalBalance").innerText = "";
+		}
 		var inputFields = document.querySelectorAll("input[type='number']");
 			inputFields.forEach(function(input) {
     		input.addEventListener("input", function() {
@@ -300,4 +312,3 @@
 	</script>
 </body>
 </html>
-
