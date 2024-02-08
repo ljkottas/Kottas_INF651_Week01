@@ -285,6 +285,16 @@
 			document.getElementById("totalBalance").innerText = ""; // Reset total balance display
 		}
 
+	var inputFields = document.querySelectorAll("input[type='number']");
+			inputFields.forEach(function(input) {
+    		input.addEventListener("input", function() {
+        		if (parseInt(input.value) > 0) {
+            		input.style.backgroundColor = "darkgray"; // Light gray background color
+        		} else {
+            		input.style.backgroundColor = ""; // Revert to default background color
+        		}
+    	});
+		
 	</script>
 </body>
 </html>
