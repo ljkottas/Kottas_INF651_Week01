@@ -35,7 +35,7 @@
 			cursor: pointer;
 		}
 
-	@media screen and (max-width: 600px) {
+		@media screen and (max-width: 600px) {
             .chip label, .cash label {
                 width: 80px; /* Adjust label width for smaller screens */
             }
@@ -44,6 +44,7 @@
                 width: 40px; /* Adjust input width for smaller screens */
             }
         }
+
 	</style>
 </head>
 <body>
@@ -71,6 +72,14 @@
 		<input type="number" id="redStacks" value="0">
 		<label for="redSingles">Red Singles:</label>
 		<input type="number" id="redSingles" value="0">
+	</div>
+	<div class="chip" style="color:tan">
+		<label for="tanRacks">Drop Racks:</label>
+		<input type="number" id="tanRacks" value="0">
+		<label for="tanStacks">Drop Stacks:</label>
+		<input type="number" id="tanStacks" value="0">
+		<label for="tanSingles">Drop Singles:</label>
+		<input type="number" id="tanSingles" value="0">
 	</div>
 	<div class="chip" style="color:yellow">
 		<label for="yellowRacks">Yellow Racks:</label>
@@ -159,6 +168,12 @@
 			var redTotal = (redRacks * 500) + (redStacks * 100) + (redSingles * 5);
 			totalBalance += redTotal;
 
+			var tanRacks = parseInt(document.getElementById("tanRacks").value);
+			var tanStacks = parseInt(document.getElementById("tanStacks").value);
+			var tanSingles = parseInt(document.getElementById("tanSingles").value);
+			var tanTotal = (tanRacks * 500) + (tanStacks * 100) + (tanSingles * 5);
+			totalBalance += tanTotal;
+
 			// Calculate total for yellow chips
 			var yellowRacks = parseInt(document.getElementById("yellowRacks").value);
 			var yellowStacks = parseInt(document.getElementById("yellowStacks").value);
@@ -235,6 +250,10 @@
 			document.getElementById("redRacks").value = 0;
 			document.getElementById("redStacks").value = 0;
 			document.getElementById("redSingles").value = 0;
+
+			document.getElementById("tanRacks").value = 0;
+			document.getElementById("tanStacks").value = 0;
+			document.getElementById("tanSingles").value = 0;
 
 			document.getElementById("yellowRacks").value = 0;
 			document.getElementById("yellowStacks").value = 0;
